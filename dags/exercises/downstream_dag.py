@@ -27,6 +27,7 @@ t_log = logging.getLogger("airflow.task")
     ### EXERCISE ###
     # Give this DAG a display name
     ### START CODE HERE ###
+    dag_id="my_downstream_dag"
     ### STOP CODE HERE ###
     start_date=datetime(2024, 6, 1),
     ### EXERCISE ###
@@ -42,6 +43,10 @@ t_log = logging.getLogger("airflow.task")
     ### EXERCISE ###
     # Set the owner of the DAG to your name and the number of retries to 3.
     ### START CODE HERE ###
+    default_args={
+        'owner': 'dheerajturaga',
+        "retries": 3
+    },
     ### STOP CODE HERE ###
     tags=["exercise"],
 )
