@@ -35,7 +35,14 @@ t_log = logging.getLogger("airflow.task")
     # AND whenever both "current_weather_data" and "max_temp_data" are updated
     # AS WELL AS ONE OF the datasets "wind_speed_data" OR "wind_direction_data".
     ### START CODE HERE ###
-    schedule=None,
+    schedule=DatasetOrTimeSchedule(
+        timetable=CronTriggerTimetable("0 0 * * *", timezone="UTC"),
+        datasets=(
+            Dataset("current_weather_data")
+            & Dataset("max_temp_data")
+            & (Dataset("wind_speed_data") |  Dataset("wind_direction_data"))
+        ),
+    ),
     ### STOP CODE HERE ###
     catchup=False,
     doc_md=__doc__,
