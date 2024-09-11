@@ -87,7 +87,7 @@ def upstream_dag_1_ex():
     @task
     def get_cities(**context) -> str:
         ### START CODE HERE ### (modify the return statement to return all cities in the list)
-        return context["params"]["my_cities"][0]
+        return context["params"]["my_cities"]
         ### END CODE HERE  ###
 
     cities = get_cities()
@@ -110,7 +110,7 @@ def upstream_dag_1_ex():
         return {"city": city, "lat": lat, "long": long}
 
     ### START CODE HERE ### (use the expand method to map the task over all cities)
-    cities_coordinates = get_lat_long_for_one_city(city=cities)
+    cities_coordinates = get_lat_long_for_one_city.expand(city=cities)
     ### END CODE HERE ###
     ### END EXERCISE ###
 
