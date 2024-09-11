@@ -27,7 +27,7 @@ t_log = logging.getLogger("airflow.task")
     ### EXERCISE ###
     # Give this DAG a display name
     ### START CODE HERE ###
-    dag_id="my_downstream_dag"
+    dag_display_name="My Beautiful Downstream Dag",
     ### STOP CODE HERE ###
     start_date=datetime(2024, 6, 1),
     ### EXERCISE ###
