@@ -50,6 +50,7 @@ t_log = logging.getLogger("airflow.task")
     ### EXERCISE ###
     # Set the owner of the DAG to your name and the number of retries to 3.
     ### START CODE HERE ###
+    max_active_runs=1,
     default_args={
         'owner': 'dheerajturaga',
         "retries": 3
